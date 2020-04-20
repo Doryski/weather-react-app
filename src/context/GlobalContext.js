@@ -13,6 +13,7 @@ export const GlobalContextProvider = ({ children }) => {
 	const [city, setCity] = useState('')
 	const [weather, setWeather] = useState([])
 	const [sunData, setSunData] = useState([])
+	const homePath = "/weather-react-app"
 
 	const getCityData = async () => {
 		const response = await fetch(
@@ -59,6 +60,7 @@ export const GlobalContextProvider = ({ children }) => {
 	return (
 		<GlobalContext.Provider
 			value={{
+				homePath,
 				handleCityClick,
 				handleSubmit,
 				cityList,

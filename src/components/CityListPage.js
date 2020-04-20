@@ -20,7 +20,7 @@ const Link = styled.a`
 `
 
 const CityListPage = () => {
-	const { handleCityClick, cityList } = useContext(GlobalContext)
+	const { handleCityClick, cityList, homePath } = useContext(GlobalContext)
 	let history = useHistory()
 	return (
 		<ul>
@@ -30,7 +30,7 @@ const CityListPage = () => {
 						onClick={async () => {
 							await handleCityClick(city)
 							await history.push(
-								`/weather/${city.EnglishName}`
+								`${homePath}/weather/${city.EnglishName}`
 							)
 						}}
 					>

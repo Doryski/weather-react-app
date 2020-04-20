@@ -30,19 +30,19 @@ const StyledWrapper = styled.div`
 `
 
 const Wrapper = () => {
-	const { temperatureValue } = useContext(GlobalContext)
+	const { temperatureValue, homePath } = useContext(GlobalContext)
 
 	return (
 		<StyledWrapper temperature={temperatureValue}>
 			<Search />
 			<Switch>
 				<Route
-					path='/cities'
+					path={`${homePath}/cities`}
 					exact
 					component={CityListPage}
 				/>
 				<Route
-					path='/weather/:city'
+					path={`${homePath}/weather/:city`}
 					component={WeatherPage}
 				/>
 			</Switch>

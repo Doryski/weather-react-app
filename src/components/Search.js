@@ -24,14 +24,14 @@ const Input = styled.input`
 `
 
 const Search = () => {
-	const { handleSubmit, setCity, city } = useContext(GlobalContext)
+	const { homePath, handleSubmit, setCity, city } = useContext(GlobalContext)
 	let history = useHistory()
 	
 	return (
 		<form
 			onSubmit={e => {
 				handleSubmit(e)
-				history.push('/cities')
+				history.push(`${homePath}/cities`)
 				setCity('')
 			}}
 		>
