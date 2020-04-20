@@ -16,7 +16,7 @@ export const GlobalContextProvider = ({ children }) => {
 
 	const getCityData = async () => {
 		const response = await fetch(
-			`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apikey}&q=${city}&details=true`
+			`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apikey}&q=${city}&details=true`
 		)
 
 		let data = await response.json()
@@ -27,7 +27,7 @@ export const GlobalContextProvider = ({ children }) => {
 
 	const getWeatherData = async cityKey => {
 		const response = await fetch(
-			`http://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${apikey}&details=true`
+			`https://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${apikey}&details=true`
 		)
 
 		let weatherData = await response.json()
@@ -36,7 +36,7 @@ export const GlobalContextProvider = ({ children }) => {
 	}
 	const getSunData = async cityKey => {
 		const response = await fetch(
-			`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${apikey}&details=true`
+			`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${cityKey}?apikey=${apikey}&details=true`
 		)
 
 		let sunData = await response.json()

@@ -1,14 +1,16 @@
 {
-    "name": "react-start",
+    "name": "weather-react-app",
     "version": "1.0.0",
-    "description": "Boilerplate for React apps using styled-components",
+    "description": "Weather app using React and styled components",
     "main": "index.js",
     "scripts": {
+        "deploy": "gh-pages -d build",
         "start": "webpack-dev-server --mode development --open --hot",
         "build": "webpack --mode production"
     },
     "author": "Doryski",
     "license": "ISC",
+    "homepage": "https://doryski.github.io/weather-react-app",
     "dependencies": {
         "moment": "^2.24.0",
         "react": "^16.13.1",
@@ -23,6 +25,7 @@
         "@babel/preset-env": "^7.9.0",
         "@babel/preset-react": "^7.9.4",
         "babel-loader": "^8.1.0",
+        "gh-pages": "^2.2.0",
         "html-webpack-plugin": "^4.0.3",
         "webpack": "^4.42.1",
         "webpack-cli": "^3.3.11",
