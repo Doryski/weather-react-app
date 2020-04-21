@@ -10,7 +10,8 @@ import { GlobalContext } from '../context/GlobalContext'
 const StyledWrapper = styled.div`
 	height: 80vh;
 	display: grid;
-	grid-template-rows: 10vh 70vh;
+	grid-template-rows: 10vh 69vh;
+	padding-bottom: 0.3em;
 	min-width: 300px;
 	width: 80vw;
 	max-width: 500px;

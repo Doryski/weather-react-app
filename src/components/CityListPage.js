@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom'
 const ListItem = styled.li`
 	position: relative;
 	display: block;
-	padding: 0.75rem 1.25rem;
 	background: #e6eefc;
 	margin-top: 0.1em;
 	border: 1px solid rgba(0, 0, 0, 0.125);
@@ -15,6 +14,7 @@ const ListItem = styled.li`
 	}
 `
 const Link = styled.a`
+	padding: 0.75rem 1.25rem;
 	display: flex;
 	justify-content: space-between;
 `
