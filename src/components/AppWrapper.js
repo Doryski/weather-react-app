@@ -1,13 +1,26 @@
 import React, { useContext } from 'react'
 import Search from './Search'
-import CityListPage from './CityListPage'
+import CitiesListPage from './CitiesListPage'
 import WeatherPage from './WeatherPage'
 import { Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import map from '../functions/map'
 import { GlobalContext } from '../context/GlobalContext'
 
-const StyledWrapper = styled.div`
+const rgba = temperature => {
+	const red = temperature < -5 ? '0' : '255'
+	const green =
+		temperature > -5 && temperature < 5
+			? '255'
+			: temperature > 5
+			? map(temperature, 5, 40, 255, 128)
+			: '0'
+	const blue = temperature > 5 ? '0' : '255'
+	const alpha = '.3'
+	return `rgba(${red},${green},${blue},${alpha})`
+}
+
+const Wrapper = styled.div`
 	height: 80vh;
 	display: grid;
 	grid-template-rows: 10vh 69vh;
@@ -17,38 +30,28 @@ const StyledWrapper = styled.div`
 	max-width: 500px;
 	border: 2px solid orange;
 	border-radius: 0.5em;
-	background: ${props => `rgba(${
-		props.temperature < -5 ? '0' : '255'
-	},
-		${
-			props.temperature > -5 && props.temperature < 5
-				? '255'
-				: props.temperature > 5
-				? map(props.temperature, 5, 40, 255, 128)
-				: '0'
-		},
-		${props.temperature > 5 ? '0' : '255'}, .3)`};
+	background: ${props => rgba(props.temperature)};
 `
 
-const Wrapper = () => {
+const AppWrapper = () => {
 	const { temperatureValue, homePath } = useContext(GlobalContext)
 
 	return (
-		<StyledWrapper temperature={temperatureValue}>
+		<Wrapper temperature={temperatureValue}>
 			<Search />
 			<Switch>
 				<Route
 					path={`${homePath}/cities`}
 					exact
-					component={CityListPage}
+					component={CitiesListPage}
 				/>
 				<Route
 					path={`${homePath}/weather/:city`}
 					component={WeatherPage}
 				/>
 			</Switch>
-		</StyledWrapper>
+		</Wrapper>
 	)
 }
 
-export default Wrapper
+export default AppWrapper

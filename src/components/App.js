@@ -2,14 +2,14 @@ import React from 'react'
 import Layout from '../styledConfig/ThemeProvider'
 import { BrowserRouter } from 'react-router-dom'
 import GlobalContextProvider from '../context/GlobalContext'
-import Wrapper from './Wrapper'
+import AppWrapper from './AppWrapper'
 
 const App = () => {
 	return (
 		<GlobalContextProvider>
 			<Layout>
 				<BrowserRouter>
-					<Wrapper />
+					<AppWrapper />
 				</BrowserRouter>
 			</Layout>
 		</GlobalContextProvider>

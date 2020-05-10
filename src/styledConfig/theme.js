@@ -1,4 +1,4 @@
-const theme = {
+export default {
 	colors: {
 		primary: '',
 		secondary: '',
@@ -11,5 +11,3 @@ const theme = {
 		large: '1em',
 	},
 }
-
-export default theme
