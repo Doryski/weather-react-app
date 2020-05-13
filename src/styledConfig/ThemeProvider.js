@@ -22,14 +22,14 @@ const GlobalStyle = createGlobalStyle`
 
     ul {
         list-style-type: none;
-        padding: .3em;
+        padding: ${props => props.theme.padding.small};
         overflow-y: auto;
     }
 
     a {
         text-decoration: none;
         cursor: pointer;
-        color: black;
+        color: ${props => props.theme.colors.dark};
     }
 
     button {
@@ -41,7 +41,19 @@ const GlobalStyle = createGlobalStyle`
     form {
         display: grid;
         grid-template-columns: 70% 30%;
-        padding: .3em;
+        padding: ${props => props.theme.padding.small};
+    }
+    @media only screen and (max-width: ${props =>
+		props.theme.breakpoints.tablet}) {
+        form {
+            font-size: 80%;
+        }
+    }
+    @media only screen and (max-width: ${props =>
+		props.theme.breakpoints.mobile}) {
+        form {
+            font-size: 70%;
+        }
     }
 `
 

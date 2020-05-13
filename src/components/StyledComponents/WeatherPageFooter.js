@@ -5,6 +5,14 @@ export const List = styled.ul`
 	justify-content: space-evenly;
 	align-items: center;
 	font-size: 1.2em;
+	@media only screen and (max-width: ${props =>
+			props.theme.breakpoints.tablet}) {
+		font-size: 95%;
+	}
+	@media only screen and (max-width: ${props =>
+			props.theme.breakpoints.mobile}) {
+		font-size: 90%;
+	}
 `
 
 export const Sun = styled.li`

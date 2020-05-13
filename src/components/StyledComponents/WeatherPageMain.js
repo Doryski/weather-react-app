@@ -4,8 +4,8 @@ export const Location = styled.section`
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	top: 0.3em;
-	left: 0.3em;
+	top: ${props => props.theme.padding.small};
+	left: ${props => props.theme.padding.small};
 `
 
 export const Temperature = styled.h1`

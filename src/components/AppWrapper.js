@@ -8,14 +8,15 @@ import map from '../functions/map'
 import { GlobalContext } from '../context/GlobalContext'
 
 const rgba = temperature => {
-	const red = temperature < -5 ? '0' : '255'
+	const breakpoint = 5
+	const red = temperature < -breakpoint ? '0' : '255'
 	const green =
-		temperature > -5 && temperature < 5
+		temperature > -breakpoint && temperature < breakpoint
 			? '255'
-			: temperature > 5
-			? map(temperature, 5, 40, 255, 128)
+			: temperature > breakpoint
+			? map(temperature, breakpoint, 40, 255, 128)
 			: '0'
-	const blue = temperature > 5 ? '0' : '255'
+	const blue = temperature > breakpoint ? '0' : '255'
 	const alpha = '.3'
 	return `rgba(${red},${green},${blue},${alpha})`
 }
@@ -24,11 +25,11 @@ const Wrapper = styled.div`
 	height: 80vh;
 	display: grid;
 	grid-template-rows: 10vh 69vh;
-	padding-bottom: 0.3em;
+	padding-bottom: ${props => props.theme.padding.small};
 	min-width: 300px;
 	width: 80vw;
 	max-width: 500px;
-	border: 2px solid orange;
+	border: 2px solid ${props => props.theme.colors.orange};
 	border-radius: 0.5em;
 	background: ${props => rgba(props.temperature)};
 `
